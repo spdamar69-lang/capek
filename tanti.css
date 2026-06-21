@@ -1,0 +1,229 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', serif;
+}
+
+body {
+    background: linear-gradient(135deg, #ffd6e0 0%, #e0f7fa 100%);
+    min-height: 100vh;
+    padding: 2rem 1rem;
+}
+
+nav {
+    max-width: 1000px;
+    margin: 0 auto 3rem;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: color 0.2s;
+}
+
+nav a:hover {
+    color: #2196F3;
+}
+
+#music-player {
+    max-width: 320px;
+    margin: 0 auto 3rem;
+    background: #ffffff;
+    padding: 1.5rem;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+.album-cover {
+    width: 100%;
+    max-width: 200px;
+    aspect-ratio: 1/1;
+    border-radius: 16px;
+    overflow: hidden;
+    margin: 0 auto 1rem;
+}
+
+.album-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.song-info h1 {
+    font-size: 1.4rem;
+    color: #333;
+    margin-bottom: 0.3rem;
+}
+
+.song-info p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.music-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 0.8rem;
+}
+
+.music-controls button {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: none;
+    background: #edf2f7;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.music-controls button:nth-child(2) {
+    width: 54px;
+    height: 54px;
+    background: #2196F3;
+    color: white;
+    font-size: 1.1rem;
+}
+
+.music-controls button:hover {
+    transform: scale(1.08);
+}
+
+audio {
+    width: 100%;
+    height: 34px;
+    border-radius: 8px;
+    outline: none;
+}
+
+.slider-container {
+    max-width: 900px;
+    margin: 0 auto 4rem;
+    position: relative;
+    min-height: 580px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    width: 100%;
+}
+
+.photo-wrapper {
+    position: relative;
+    width: 100%;
+    height: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.photo-card {
+    position: absolute;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    overflow: hidden;
+    transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1); /* Gerakan alami */
+    opacity: 0.7;
+    z-index: 1;
+    filter: brightness(0.9);
+}
+
+.photo-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.posisi-kiri {
+    width: 170px;
+    height: 230px;
+    left: 12%;
+    transform: translateX(-50%) rotate(-8deg) scale(0.9);
+}
+
+.posisi-tengah {
+    width: 340px;
+    height: 440px;
+    left: 50%;
+    transform: translateX(-50%) scale(1.05);
+    opacity: 1;
+    z-index: 10;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    filter: brightness(1.05);
+}
+
+.posisi-kanan {
+    width: 170px;
+    height: 230px;
+    right: 12%;
+    transform: translateX(50%) rotate(8deg) scale(0.9);
+}
+
+.tombol-geser {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(145deg, #4a90e2, #2196F3);
+    color: white;
+    font-size: 1.6rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(33, 150, 243, 0.4), inset 0 -3px 0 rgba(0,0,0,0.15), inset 0 3px 0 rgba(255,255,255,0.2);
+    z-index: 20;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tombol-geser:hover {
+    transform: translateY(-50%) scale(1.12);
+    background: linear-gradient(145deg, #2196F3, #1976D2);
+}
+
+.geser-kiri { left: 30px; }
+.geser-kanan { right: 30px; }
+
+#opening, #about {
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e3f2fd;
+}
+
+footer {
+    text-align: center;
+    margin: 2rem 0;
+    color: #666;
+}

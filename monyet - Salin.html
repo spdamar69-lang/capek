@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>maung and monyet</title>
+    <link rel="stylesheet" href="tanti.css">
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="#opening">Home</a></li>
+            <li><a href="#slider">Memories</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+    </nav>
+
+    <section id="music-player">
+        <div class="album-cover">
+            <img src="foto.jpg.jpeg" alt="Cover Album">
+        </div>
+        <div class="song-info">
+            <h1>MONYET & MAUNG</h1>
+            <p>lu bisa gaaaak</p>
+        </div>
+        <div class="music-controls">
+            <button id="prev-btn">⏮</button>
+            <button id="play-btn">▶</button>
+            <button id="next-btn">⏭</button>
+        </div>
+        <div class="music-progress">
+            <audio id="audio-player" controls>
+                <source src="tanti.mpeg" type="audio/mpeg">
+            
+        </div>
+    </section>
+
+    <!-- Pembuka -->
+   <section id="opening">
+    <a href="https://www.instagram.com/dasa_rista?utm_source=qr&igsh=cjhhcHdpMW04OW1p" target="_blank" style="text-decoration: none; color: inherit;">
+        <h1>kepo yaaaa</h1>
+        <p>😌pokoknya yang ada brengsek-brengseknyaa😎</p>
+    </a>
+    </section>
+
+
+    <section id="slider" class="slider-container">
+        <button class="tombol-geser geser-kiri" onclick="geserKiri()">◀</button>
+
+        <div class="photo-wrapper">
+            <div class="photo-card posisi-kiri">
+                <img src="monyet.jpeg" alt="">
+            </div>
+            <div class="photo-card posisi-tengah">
+                <img src="tanti.jpeg" alt="">
+            </div>
+            <div class="photo-card posisi-kanan">
+                <img src="foto.jpg.jpeg" alt="">
+            </div>
+        </div>
+
+        <button class="tombol-geser geser-kanan" onclick="geserKanan()">▶</button>
+    </section>
+
+    <section id="about">
+        <h2>HARAPAN KITA</h2>
+        <p>yang penting ga aneh-aneh</p>
+    </section>
+
+    <footer>
+        &copy; 2026 MemoryAlbum_monyet & maung.com
+    </footer>
+
+    <script>
+        const audioPlayer = document.getElementById('audio-player');
+        const playBtn = document.getElementById('play-btn');
+        let isPlaying = false;
+
+        playBtn.addEventListener('click', () => {
+            isPlaying = !isPlaying;
+            isPlaying ? (audioPlayer.play(), playBtn.textContent = '⏸') : (audioPlayer.pause(), playBtn.textContent = '▶');
+        });
+
+        const daftarFoto = [
+            {src: "monyet.jpeg", alt: "Kenangan 1"},
+            {src: "tanti.jpeg", alt: "Kenangan 2"},
+            {src: "monyet.jpeg", alt: "Kenangan 3"},
+            {src: "tanti.jpeg", alt: "Kenangan 4"}
+        ];
+
+        let indeksTengah = 1;
+
+        const fotoKiri = document.querySelector('.posisi-kiri img');
+        const fotoTengah = document.querySelector('.posisi-tengah img');
+        const fotoKanan = document.querySelector('.posisi-kanan img');
+
+        function perbaruiTampilan() {
+            const total = daftarFoto.length;
+            if (total === 0) return;
+
+            let idxTengah = indeksTengah % total;
+            let idxKiri = (idxTengah - 1 + total) % total;
+            let idxKanan = (idxTengah + 1) % total;
+
+            fotoKiri.src = daftarFoto[idxKiri].src;
+            fotoKiri.alt = daftarFoto[idxKiri].alt;
+
+            fotoTengah.src = daftarFoto[idxTengah].src;
+            fotoTengah.alt = daftarFoto[idxTengah].alt;
+
+            fotoKanan.src = daftarFoto[idxKanan].src;
+            fotoKanan.alt = daftarFoto[idxKanan].alt;
+        }
+
+        function geserKiri() {
+            indeksTengah--;
+            perbaruiTampilan();
+        }
+
+        function geserKanan() {
+            indeksTengah++;
+            perbaruiTampilan();
+        }
+
+        perbaruiTampilan();
+    </script>
+
+</body>
+</html>
